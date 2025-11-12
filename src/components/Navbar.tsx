@@ -43,6 +43,19 @@ export const Navbar = () => {
     enabled: !!session?.user?.id,
   });
 
+  const { data: isAdmin } = useQuery({
+    queryKey: ["isAdmin", session?.user?.id],
+    queryFn: async () => {
+      if (!session?.user?.id) return false;
+      const { data } = await supabase.rpc("has_role", {
+        _user_id: session.user.id,
+        _role: "admin",
+      });
+      return !!data;
+    },
+    enabled: !!session?.user?.id,
+  });
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <nav className="container mx-auto px-4">
@@ -102,6 +115,12 @@ export const Navbar = () => {
                     <User className="h-5 w-5" />
                   </Button>
                 </Link>
+                
+                {isAdmin && (
+                  <Link to="/admin">
+                    <Button variant="outline">Admin</Button>
+                  </Link>
+                )}
               </>
             ) : (
               <Link to="/auth">
@@ -162,6 +181,14 @@ export const Navbar = () => {
                       Profile
                     </Button>
                   </Link>
+                  
+                  {isAdmin && (
+                    <Link to="/admin">
+                      <Button variant="outline" className="w-full justify-start">
+                        Admin Dashboard
+                      </Button>
+                    </Link>
+                  )}
                 </>
               ) : (
                 <Link to="/auth">
