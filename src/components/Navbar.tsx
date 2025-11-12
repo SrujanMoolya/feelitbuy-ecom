@@ -62,10 +62,11 @@ export const Navbar = () => {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="flex flex-col">
+            <img src="/fib-logo.png" alt="FeelItBuy Logo" className="h-14 w-auto object-contain" />
+            {/* <div className="flex flex-col">
               <span className="text-2xl font-bold text-primary">Feel It Buy</span>
               <span className="text-xs text-muted-foreground hidden sm:block">Experience It Before You Own It</span>
-            </div>
+            </div> */}
           </Link>
 
           {/* Search Bar - Hidden on mobile */}
