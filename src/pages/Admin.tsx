@@ -297,7 +297,7 @@ const Admin = () => {
                     <YAxis />
                     <Tooltip />
                     <Legend />
-                    <Line type="monotone" dataKey="sales" stroke="hsl(var(--primary))" name="Sales ($)" />
+                    <Line type="monotone" dataKey="sales" stroke="hsl(var(--primary))" name="Sales (₹)" />
                     <Line type="monotone" dataKey="orders" stroke="hsl(var(--secondary))" name="Orders" />
                   </LineChart>
                 </ResponsiveContainer>
@@ -331,7 +331,7 @@ const Admin = () => {
                         <TableCell className="font-mono text-xs">{order.id.slice(0, 8)}</TableCell>
                         <TableCell>{order.profiles?.full_name || "N/A"}</TableCell>
                         <TableCell>{new Date(order.created_at).toLocaleDateString()}</TableCell>
-                        <TableCell>${Number(order.total_amount).toFixed(2)}</TableCell>
+                        <TableCell>₹{Number(order.total_amount).toFixed(2)}</TableCell>
                         <TableCell>
                           <span className={`px-2 py-1 rounded text-xs ${
                             order.status === 'delivered' ? 'bg-green-100 text-green-800' :
@@ -439,7 +439,7 @@ const Admin = () => {
                       <TableRow key={product.id}>
                         <TableCell className="font-medium">{product.name}</TableCell>
                         <TableCell className="font-mono text-xs">{product.slug}</TableCell>
-                        <TableCell>${Number(product.price).toFixed(2)}</TableCell>
+                        <TableCell>₹{Number(product.price).toFixed(2)}</TableCell>
                         <TableCell>{product.stock}</TableCell>
                         <TableCell>
                           <span className={`px-2 py-1 rounded text-xs ${
