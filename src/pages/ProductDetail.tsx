@@ -248,12 +248,12 @@ const ProductDetail = () => {
 
               <div className="flex items-baseline gap-3 mb-6">
                 <span className="text-4xl font-bold text-primary">
-                  ${product.price.toFixed(2)}
+                  ₹{product.price.toFixed(2)}
                 </span>
                 {product.original_price && (
                   <>
                     <span className="text-xl text-muted-foreground line-through">
-                      ${product.original_price.toFixed(2)}
+                      ₹{product.original_price.toFixed(2)}
                     </span>
                     <Badge className="bg-secondary text-secondary-foreground">
                       {discount}% OFF

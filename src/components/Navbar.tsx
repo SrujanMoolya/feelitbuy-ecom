@@ -79,6 +79,9 @@ export const Navbar = () => {
             </div>
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-4">
+              <Link to="/products">
+                <Button variant="ghost">Products</Button>
+              </Link>
               <Link to="/categories">
                 <Button variant="ghost">Categories</Button>
               </Link>
@@ -143,6 +146,11 @@ export const Navbar = () => {
                 />
               </div>
               <div className="flex flex-col space-y-2">
+                <Link to="/products">
+                  <Button variant="ghost" className="w-full justify-start">
+                    Products
+                  </Button>
+                </Link>
                 <Link to="/categories">
                   <Button variant="ghost" className="w-full justify-start">
                     Categories
@@ -193,9 +201,9 @@ export const Navbar = () => {
           <img src="/fib-logo.png" alt="Logo" className="h-7 w-7 object-contain mb-1" />
           Home
         </Link>
-        <Link to="/categories" className="flex flex-col items-center text-xs">
+        <Link to="/products" className="flex flex-col items-center text-xs">
           <Menu className="h-7 w-7 mb-1" />
-          Categories
+          Products
         </Link>
         <Link to="/wishlist" className="flex flex-col items-center text-xs relative">
           <Heart className="h-7 w-7 mb-1" />
